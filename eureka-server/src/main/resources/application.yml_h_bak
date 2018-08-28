@@ -1,0 +1,52 @@
+spring: 
+  application:
+    name: eureka-server
+
+# 安全认证组件
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: root
+#    password: root
+
+server: 
+    port: 8096
+eureka: 
+  instance: 
+    hostname: peer2
+  client: 
+    serviceUrl: 
+      defaultZone: http://peer1:8095/eureka/,http://peer3:8097/eureka/
+    fetch-registry: false
+
+---
+server: 
+    port: 8097
+eureka: 
+  instance: 
+    hostname: peer3
+  client: 
+    serviceUrl: 
+      defaultZone: http://peer1:8095/eureka/,http://peer2:8096/eureka/
+    fetch-registry: false
+
+---
+server: 
+    port: 8095
+eureka: 
+  datacenter: cloud
+  environment: product
+  instance: 
+    hostname: peer1
+    ip-address: true
+  client: 
+    healthcheck:  # eureka健康检查
+      enable: true
+    serviceUrl: 
+      defaultZone: http://peer2:8096/eureka/,http://peer3:8097/eureka/
+    fetch-registry: false
+  server: 
+    enable-self-preservation: false # 关闭注册中心自我保护机制
+    eviction-interval-timer-in-ms: 5000 # 注册中心清理间隔（单位：毫秒，默认 60*1000）
+    

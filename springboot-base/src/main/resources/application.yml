@@ -1,0 +1,79 @@
+
+spring: 
+  profiles: 
+    active:
+    - test
+  resources: 
+    static-locations: # 则用于描述静态资源的存放位置。
+    - classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources
+
+# 热部署生效
+#  devtools: 
+#    restart:
+#      enabled: true
+#      # 设置重启的目录，添加那个目录的文件需要restart
+#      additional-paths:
+#      - src/main/java
+
+# rabbitmq 配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springboot
+    password: 320324
+
+# thymeleaf配置
+  thymeleaf: 
+#    prefix: /templates/
+#    suffix: .html
+#    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html; charset=utf-8
+    cache: false #关闭thymeleaf的缓存机制，true会导致热加载无法使用
+    
+# SpringMvc配置
+#  mvc:  
+#    view: 
+#      prefix: classpath:/templates/
+#      suffix: .html,.flt
+#     # “spring.mvc.static-path-pattern”用于阐述HTTP请求地址
+#    static-path-pattern: /resources/**
+
+# freemarker配置
+  freemarker: 
+    template-loader-path:
+    - classpath:/templates
+    allow-request-override: false
+    cache: false # 上线项目需改为true，即时刷新
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html; charset=utf-8
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    request-context-attribute: request
+#    prefix: 
+    suffix: .flt
+
+# 彩色日志输出 
+  output:
+    ansi:
+      enabled: always
+    
+# mybatis配置，生产环境可删除
+mybatis:
+    type-aliases-package: com.springboot.bean
+    mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers:
+        - com.springboot.util.MyMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper: 
+  autoDialect: true
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+    

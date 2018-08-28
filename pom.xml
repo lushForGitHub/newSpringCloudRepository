@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.cares.springboot</groupId>
+	<artifactId>springboot-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.14.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<!-- springCloud 依赖 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.SR5</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin><!-- 项目的打包发布 -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.springcloud.EurekaServerApplication</mainClass>
+					<mainClass>com.springcloud.EurekaServerRegionApplication</mainClass>
+					<mainClass>com.springcloud.EurekaServiceRegionApplication</mainClass>
+					<mainClass>com.springcloud.HystrixConsumerApplication</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>eureka-server</module>
+		<module>eureka-server-region</module>
+		<module>eureka-server-region-service</module>
+		<module>feign-consumer-service</module>
+		<module>feign-consumer-service-logging</module>
+		<module>feign-consumer-service-override-defaultConfig</module>
+		<module>feign-consumer-service-with-hystrix</module>
+		<module>feign-consumer-service-with-hystrix-fallbackfactory</module>
+		<module>feign-consumer-service-without-hystrix</module>
+		<module>gateway-zuul</module>
+		<module>gateway-zuul-file-upload</module>
+		<module>gateway-zuul-regular-exp</module>
+		<module>hystrix-consumer</module>
+		<module>hystrix-consumer2</module>
+		<module>hystrix-consumer3</module>
+		<module>hystrix-consumer-dashboard</module>
+		<module>hystrix-consumer-turbine</module>
+		<module>hystrix-consumer-turbine2</module>
+		<module>hystrix-consumer-turbine3</module>
+		<module>ribbon-consumer-custom-rule</module>
+		<module>ribbon-consumer-only-yml</module>
+		<module>ribbon-consumer-service</module>
+		<module>ribbon-consumer-service-annotation</module>
+		<module>ribbon-consumer-without-eureka</module>
+		<module>springboot-base</module>
+  </modules>
+</project>

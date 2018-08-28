@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ribbon-consumer-without-eureka
+    
+server:
+  port: 9004
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}.${spring.cloud.client.ipAddress}.${server.port}
+    
+ribbon:
+  eureka:
+    enabled: false
+    
+TEST-SERVICE: 
+  ribbon:
+    listOfServers: localhost:8084

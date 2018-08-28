@@ -1,0 +1,26 @@
+spring: 
+  application:
+    name: gateway-zuul
+
+server: 
+    port: 10000
+eureka: 
+  client: 
+    serviceUrl: 
+      defaultZone: http://peer1:8095/eureka/,http://peer2:8096/eureka/,http://peer3:8097/eureka/
+  instance: 
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+ 
+zuul:
+  prefix: /index # 访问方式 localhost:server.port/index/serviceId/**
+  strip-prefix: false # 去掉代理的service的前缀 如：localhost:server.port/index/test-sevice-v1/hello
+
+#zuul:
+#  test-service-v1: # 只针对test-service-v1的微服务
+#    prifix: /index
+#    strip-prefix: false  
+
+logging:
+  level:
+    com.netflix: DEBUG
