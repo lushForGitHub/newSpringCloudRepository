@@ -66,6 +66,7 @@
 		<module>feign-consumer-service-with-hystrix-fallbackfactory</module>
 		<module>feign-consumer-service-without-hystrix</module>
 		<module>gateway-zuul</module>
+		<module>gateway-zuul-fallback</module>
 		<module>gateway-zuul-file-upload</module>
 		<module>gateway-zuul-regular-exp</module>
 		<module>hystrix-consumer</module>
