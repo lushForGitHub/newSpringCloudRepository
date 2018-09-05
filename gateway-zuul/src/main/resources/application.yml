@@ -11,16 +11,13 @@ eureka:
   instance: 
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
- 
-zuul:
-  routes:
-  # 配置的路由使用/test/**
-    test-service-v1: 
-      path: /test/**
-  # 剩下的使用/**
-    legacy: 
-      path: /**
-      
 logging:
   level:
     com.netflix: DEBUG
+ 
+# 上传文件防超时  如果文件太大，可以使用/zuul/*，可以超过mvc的Spring DispatcherServlet
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+      
