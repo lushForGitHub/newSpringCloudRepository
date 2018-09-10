@@ -3,7 +3,7 @@ spring:
     name: gateway-zuul-regular-exp
 
 server: 
-    port: 10001
+    port: 10030
 eureka: 
   client: 
     serviceUrl: 

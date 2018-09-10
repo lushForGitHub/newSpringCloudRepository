@@ -3,7 +3,7 @@ spring:
     name: gateway-zuul
 
 server: 
-    port: 10000
+    port: 10020
 eureka: 
   client: 
     serviceUrl: 
