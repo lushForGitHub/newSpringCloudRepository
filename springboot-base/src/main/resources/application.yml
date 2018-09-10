@@ -16,11 +16,11 @@ spring:
 #      - src/main/java
 
 # rabbitmq 配置
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: springboot
-    password: 320324
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: springboot
+#    password: 320324
 
 # thymeleaf配置
   thymeleaf: 
@@ -61,19 +61,19 @@ spring:
       enabled: always
     
 # mybatis配置，生产环境可删除
-mybatis:
-    type-aliases-package: com.springboot.bean
-    mapper-locations: classpath:mapper/*.xml
-
-mapper:
-    mappers:
-        - com.springboot.util.MyMapper
-    not-empty: false
-    identity: MYSQL
-
-pagehelper: 
-  autoDialect: true
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
+#mybatis:
+#    type-aliases-package: com.springboot.bean
+#    mapper-locations: classpath:mapper/*.xml
+#
+#mapper:
+#    mappers:
+#        - com.springboot.util.MyMapper
+#    not-empty: false
+#    identity: MYSQL
+#
+#pagehelper: 
+#  autoDialect: true
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
     
