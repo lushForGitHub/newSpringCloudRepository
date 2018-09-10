@@ -68,6 +68,7 @@
 		<module>gateway-zuul</module>
 		<module>gateway-zuul-fallback</module>
 		<module>gateway-zuul-file-upload</module>
+		<module>gateway-zuul-filter</module>
 		<module>gateway-zuul-regular-exp</module>
 		<module>hystrix-consumer</module>
 		<module>hystrix-consumer2</module>
@@ -81,6 +82,8 @@
 		<module>ribbon-consumer-service</module>
 		<module>ribbon-consumer-service-annotation</module>
 		<module>ribbon-consumer-without-eureka</module>
+		<module>sidecar-service</module>
 		<module>springboot-base</module>
+		
   </modules>
 </project>

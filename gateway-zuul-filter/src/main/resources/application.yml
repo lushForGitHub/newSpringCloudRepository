@@ -1,0 +1,16 @@
+spring: 
+  application:
+    name: gateway-zuul-filter
+
+server: 
+    port: 10001
+eureka: 
+  client: 
+    service-url: 
+      defaultZone: http://localhost:8761/eureka/
+  instance: 
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+logging:
+  level:
+    com.netflix: DEBUG
