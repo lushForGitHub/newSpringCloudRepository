@@ -6,7 +6,7 @@ server:
     port: 10000
 eureka: 
   client: 
-    serviceUrl: 
+    service-url:
       defaultZone: http://localhost:8761/eureka/
   instance: 
     prefer-ip-address: true
@@ -14,7 +14,10 @@ eureka:
 logging:
   level:
     com.netflix: DEBUG
- 
+zuul:
+  routes:
+    test-service: /test/**
+
 # 上传文件防超时  如果文件太大，可以使用/zuul/*，可以超过mvc的Spring DispatcherServlet
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
 ribbon:
