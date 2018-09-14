@@ -1,0 +1,10 @@
+spring: 
+  cloud: 
+    config: 
+      server: 
+        git:
+          uri: https://github.com/lushForGitHub/springcloud-config-test
+#          uri: https://github.com/lushForGitHub/{application}
+server: 
+    port: 8080
+    
