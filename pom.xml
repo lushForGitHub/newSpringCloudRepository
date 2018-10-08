@@ -87,5 +87,6 @@
 		<module>springcloud-config-server</module>
 		<module>springcloud-config-client</module>
 		<module>springcloud-config-client-refresh</module>
+		<module>springcloud-config-client-refresh-bus</module>
   </modules>
 </project>
