@@ -16,11 +16,11 @@ spring:
 #      - src/main/java
 
 # rabbitmq 配置
-#  rabbitmq:
+#  rabbitmq: 
 #    host: localhost
 #    port: 5672
-#    username: springboot
-#    password: 320324
+#    username: guest
+#    password: guest
 
 # thymeleaf配置
   thymeleaf: 
@@ -29,7 +29,7 @@ spring:
 #    mode: HTML5
     encoding: UTF-8
     content-type: text/html; charset=utf-8
-    cache: false #关闭thymeleaf的缓存机制，true会导致热加载无法使用
+    cache: false # 关闭thymeleaf的缓存机制，true会导致热加载无法使用
     
 # SpringMvc配置
 #  mvc:  
